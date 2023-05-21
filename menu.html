@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Menu - Homemade Food Delivery Service</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Add custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    #menu-section {
+      background-color: #f9f9f9;
+      padding: 40px;
+    }
+
+    #menu-section h2 {
+      margin-top: 0;
+    }
+
+    #chef-selection {
+      margin-bottom: 20px;
+    }
+
+    #chef-selection select {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .chef-menu {
+      display: none;
+    }
+
+    .chef-menu.active {
+      display: block;
+    }
+
+    #menu-items h3 {
+      margin-top: 0;
+    }
+
+    #menu-items ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #menu-items li {
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background-color: #333;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // JavaScript code to handle chef selection and display menu items
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const chefSelection = document.getElementById('chef-selection');
+      const chefMenus = document.getElementsByClassName('chef-menu');
+
+      chefSelection.addEventListener('change', (event) => {
+        const selectedChef = event.target.value;
+
+        // Hide all chef menus
+        for (let i = 0; i < chefMenus.length; i++) {
+          chefMenus[i].classList.remove('active');
+        }
+
+        // Show the selected chef menu
+        const selectedChefMenu = document.getElementById(`chef-menu-${selectedChef}`);
+        if (selectedChefMenu) {
+          selectedChefMenu.classList.add('active');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Menu</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="menu-section">
+    <h2>Our Menu</h2>
+
+    <div id="chef-selection">
+      <label for="chef">Select Nearest Chef:</label>
+      <select id="chef" name="chef">
+        <option value="chef1">Chef 1</option>
+        <option value="chef2">Chef 2</option>
+        <!-- Add more chef options here -->
+      </select>
+    </div>
+
+    <div id="menu-items">
+      <div id="chef-menu-chef1" class="chef-menu">
+        <h3>Chef 1's Specialties</h3>
+        <ul>
+          <li>Specialty Dish 1</li>
+          <li>Specialty Dish 2</li>
+          <!-- Add more specialty dishes here -->
+        </ul>
+
+        <h3>Today's Menu</h3>
+        <ul>
+          <li>Today's Dish 1</li>
+          <li>Today's Dish 2</li>
+          <!-- Add more dishes for today's menu here -->
+        </ul>
+      </div>
+
+      <div id="chef-menu-chef2" class="chef-menu">
+        <h3>Chef 2's Specialties</h3>
+        <ul>
+          <li>Specialty Dish 1</li>
+          <li>Specialty Dish 2</li>
+          <!-- Add more specialty dishes here -->
+        </ul>
+
+        <h3>Today's Menu</h3>
+        <ul>
+          <li>Today's Dish 1</li>
+          <li>Today's Dish 2</li>
+          <!-- Add more dishes for today's menu here -->
+        </ul>
+      </div>
+
+      <!-- Add more chef menu sections here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Homemade Food Delivery Service. All rights reserved.</p>
+  </footer>
+</body>
+</html>
